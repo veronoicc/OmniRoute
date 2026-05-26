@@ -6,9 +6,7 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 
 COPY package*.json ./
-COPY scripts/build/postinstall.mjs ./scripts/build/postinstall.mjs
-COPY scripts/build/postinstallSupport.mjs ./scripts/build/postinstallSupport.mjs
-COPY scripts/build/native-binary-compat.mjs ./scripts/build/native-binary-compat.mjs
+COPY scripts/ ./scripts/
 ENV NPM_CONFIG_LEGACY_PEER_DEPS=true
 # `--ignore-scripts` blocks the install/postinstall hooks of dependencies,
 # closing the supply-chain attack surface where a transitive dep can run
