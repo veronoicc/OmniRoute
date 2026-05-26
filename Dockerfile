@@ -21,6 +21,7 @@ RUN if [ -f package-lock.json ]; then \
     fi
 
 COPY . ./
+ENV NODE_OPTIONS="--max-old-space-size=2048"
 RUN mkdir -p /app/data && npm run build -- --webpack
 
 FROM node:24-trixie-slim AS runner-base
